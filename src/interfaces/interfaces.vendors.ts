@@ -19,8 +19,9 @@ export interface IVendorConfig {
 	callTrackingMetrics: {
 		url: string;
 		access_key: string;
+		secretKey: string;
 		webhook_username: string;
-		webhook_password: string;
+		webhookPassword: string;
 	};
 
 	elastic: {
