@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "target": "es6",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveSymlinks": true
+  },
+  "include": [
+    "./src/**.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

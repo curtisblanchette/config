@@ -1,0 +1,43 @@
+{
+  "name": "@4iiz/config",
+  "version": "3.13.0",
+  "description": "> TODO: description",
+  "author": "Curtis Blanchette <curtis@4iiz.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build_old": "webpack --env.name='config' --env.mode='production' --config ../webpack.build.js",
+    "clean": "npx rimraf ./lib",
+    "lint": "eslint './src/**/*.ts'",
+    "build": "npm run lint && npm run clean && tsc && echo 'Build Complete.'",
+    "publish:patch": "git diff --exit-code && npm run build && npm version patch && npm publish",
+    "publish:minor": "git diff --exit-code && npm run build && npm version minor && npm publish",
+    "publish:major": "git diff --exit-code && npm run build && npm version major && npm publish",
+    "publish:rc": "git diff --exit-code && npm run build && npm version prerelease --preid=rc && npm publish"
+  },
+  "dependencies": {
+    "@4iiz/logging": "^0.3.4",
+    "aws-sdk": "^2.627.0",
+    "lodash": "^4.17.21",
+    "snowflake-promise": "^2.2.0",
+    "yamljs": "^0.3.0"
+  },
+  "gitHead": "c3b5cae72b3441cdd7489b77aad6817e21238cb9",
+  "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@types/yamljs": "^0.2.31",
+    "@types/lodash": "^4.14.168",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "eslint": "^7.19.0",
+    "typescript": "^3.9.7"
+  }
+}

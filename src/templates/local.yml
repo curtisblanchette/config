@@ -1,0 +1,136 @@
+location:
+    services:
+        app: https://app-dossier.4iiz.io
+        api: https://api.4iiz.io/dossier
+    vendors:
+        callTrackingMetrics: &callTrackingMetricsUrl api.calltrackingmetrics.com
+        elastic: &elasticHost https://logstash.4iiz.io
+        hubspot: 
+            url: &hubspotUrl https://api.hubapi.com
+            redirect: &hubspotRedirect https://app-dev.4iiz.io/app/profile/credentials
+        infusionSoft: &infusionSoftUrl https://api.infusionsoft.com
+        nextivia: &nextiviaUrl https://cp1.nextiva.com/com.broadsoft.xsi-events
+        office365: 
+            auth: &office365AuthUrl https://login.microsoftonline.com
+            redirect: &office365Redirect https://app-dossier.4iiz.io/app/profile/credentials
+        processMaker: &processMakerLocation https://sandbox-dienerlaw.processmaker.com
+        rightSignature: &rightSignatureUrl https://api.rightsignature.com
+
+sources:
+    snowflake:
+        account: db97461
+        username: BRADLEYHOLBROOK4iiz
+        region: us-east-1
+        database: STACK_DOSSIER
+        schema: PUBLIC
+        warehouse: OPERATING_XS
+        defaultTimeout: 280
+
+credentials:
+    system:
+        username: 4iiz.system
+    jwt:
+        defaultExpireLong: 3y
+        defaultExpireShirt: 1h
+        audience: Middleman
+        issuer: 4iiz
+    encryption: {}
+
+settings:
+    dateFormat: YYYY-MM-DD
+    dateTimeFormat: YYYY-MM-DD HH:mm:ss
+
+models:
+    entity:
+        AllowedMultipleRelationshipValuesKeys: 
+            - agents
+            - children
+    matter:
+        AllowedMultipleRelationshipValuesKeys:
+            - prosecutors
+    policy:
+        system:
+            default:
+                read: all
+                write: all
+        owner:
+            default:
+                read: workspace
+                write: role
+        admin:
+            default:
+                read: workspace
+                write: role
+        operator:
+            default:
+                read: role
+                write: own
+
+services:
+    hapi:
+        isSecure: true
+        ssl: {}
+        log: []
+        debug: {}
+        host: 'localhost'
+        port: 5000
+        routes:
+            prefix: !!str /
+            glob: !!str /**/!(_)*.js
+            directory: 
+                path: server/routes
+                isPrefix: false
+        plugins:
+            - swagger
+            - blipp
+            - good
+    swagger:
+        basePath: /
+        pathPrefixSize: 2
+        info:
+            title: 4iiz API
+            description: 4iiz API Documentation
+            version: ""
+        grouping: tags
+        swaggerUI: true
+        documentationPage: true
+        documentationPath: !!str /docs
+    vendors:
+        aws:
+            region: us-east-1
+            products:
+                cognito:
+                    poolId: us-east-1_zhTVMDxqY
+                    clientId: 71c4hv5mv4j7r6sjuabva43pqh
+                ses:
+                    senderEmail: contact@4iiz.com
+                    replyToAddresses: []
+        callTrackingMetrics:
+            url: *callTrackingMetricsUrl
+            access_key: f7bd97271c7fc41ed9829e1e7e66debe
+            webhook_username: 4iiz.callTrackingMetrics
+        elastic:
+            host: *elasticHost
+            username: rusty
+        hubspot:
+            url: *hubspotUrl
+            redirect: *hubspotRedirect
+            appId: 189220
+            clientId: 47366139-2783-4c3d-8a4b-d1c36ee4d741
+        infusionsoft:
+            url: *infusionSoftUrl
+            clientId: 9ydh7a7hwefqu26rwfdnv5d4
+        nextivia:
+            url: *nextiviaUrl
+        office365:
+            authUrl: *office365AuthUrl
+            scope: openid profile offline_access Calendars.ReadWrite Calendars.ReadWrite.Shared Contacts.Read Contacts.Read.Shared User.Read
+            clientId: 17dfe160-c286-4180-b762-8af9a43971fd
+            redirect: *office365Redirect
+        processMaker:
+            uri: *processMakerLocation
+            workspace: workflow
+            username: admin
+        rightSignature:
+            url: *rightSignatureUrl
+        

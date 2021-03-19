@@ -1,0 +1,7 @@
+.tscache
+.idea
+.vscode
+*.tmp.txt
+
+/lib
+node_modules
