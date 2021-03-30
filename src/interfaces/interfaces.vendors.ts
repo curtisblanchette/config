@@ -13,6 +13,9 @@ export interface IVendorConfig {
 				senderEmail: string;
 				replyToAddresses: string[];
 			};
+			sns: {
+				errorParserArn: string;
+			}
 		};
 	};
 
