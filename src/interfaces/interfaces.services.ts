@@ -56,11 +56,11 @@ export interface IServicesConfig {
 
 	hapi: IHapiConfig;
 
-	napi: IHapiConfig;
-
-	orchestrator: IHapiConfig;
-
 	papi: IPapiConfig;
+
+	automatedIntake?: { port: string };
+
+	scheduledProcesses?: { port: string };
 
 	swagger: ISwaggerConfig;
 
