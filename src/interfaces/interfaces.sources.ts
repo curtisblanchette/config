@@ -16,4 +16,8 @@ export interface ISnowflakeConnection extends ConnectionOptions {
 
 export interface ISourcesConfig {
 	snowflake: ISnowflakeConnection;
+	mongo: {
+		operating: string;
+		reporting: string;
+	}
 }
