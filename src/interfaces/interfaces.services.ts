@@ -62,6 +62,8 @@ export interface IServicesConfig {
 
 	scheduledProcesses?: { port: string };
 
+	socketApi?: { port: string };
+
 	swagger: ISwaggerConfig;
 
 	vendors: IVendorConfig;
