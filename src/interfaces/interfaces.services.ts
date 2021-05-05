@@ -21,6 +21,12 @@ interface IHapiConfig {
 	plugins: string[];
 }
 
+interface IExpressConfig {
+	isSecure: boolean;
+	host: string;
+	port: number;
+}
+
 interface ISwaggerConfig {
 	basePath: string;
 	pathPrefixSize: number;
@@ -56,13 +62,13 @@ export interface IServicesConfig {
 
 	hapi: IHapiConfig;
 
+	express: IExpressConfig;
+
 	papi: IPapiConfig;
 
 	automatedIntake?: { port: string };
 
 	scheduledProcesses?: { port: string };
-
-	socketApi?: { port: string };
 
 	swagger: ISwaggerConfig;
 
