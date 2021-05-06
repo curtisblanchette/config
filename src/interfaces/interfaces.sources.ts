@@ -19,5 +19,7 @@ export interface ISourcesConfig {
 	mongo: {
 		operating: string;
 		reporting: string;
+		poolSize: number;
+		useUnifiedTopology: boolean;
 	}
 }
