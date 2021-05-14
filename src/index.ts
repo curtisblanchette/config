@@ -42,7 +42,7 @@ export async function refresh(every=86400): Promise<IConfig> {
 	return get();
 }
 
-export async function get(): Promise<IConfig> {
+export async function get(remote = false): Promise<IConfig> {
 
 	const path = `${process.cwd()}/../../packages/config/local/config.yml`;
 
@@ -56,7 +56,7 @@ export async function get(): Promise<IConfig> {
 	} else {
 
 		logger.info(`Reading configuration`);
-		if (!storedConfig) {
+		if (remote || !storedConfig) {
 			storedConfig = await read();
 			logger.info(`Configuration Loaded from AWS`);
 		}
