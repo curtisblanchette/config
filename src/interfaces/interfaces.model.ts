@@ -20,9 +20,18 @@ interface ICacheConfig {
 	combinations: ICacheCombinationsConfig;
 }
 
+interface IRatingConfig {
+	1: string;
+	2: string;
+	3: string;
+	4: string;
+	5: string;
+}
+
 export interface IModelConfig {
 	entity: IEntityConfig;
 	policy: IPolicyConfig;
 	matter: IMatterConfig;
 	cache: ICacheConfig;
+	rating: IRatingConfig;
 }
