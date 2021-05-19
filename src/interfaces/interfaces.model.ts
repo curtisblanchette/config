@@ -26,6 +26,7 @@ interface IRatingConfig {
 	3: string;
 	4: string;
 	5: string;
+	6: string;
 }
 
 export interface IModelConfig {
