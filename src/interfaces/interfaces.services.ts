@@ -25,6 +25,10 @@ interface IExpressConfig {
 	isSecure: boolean;
 	host: string;
 	port: number;
+	cognito: {
+		poolId: string;
+		clientId: string;
+	}
 }
 
 interface ISwaggerConfig {
