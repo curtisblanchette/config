@@ -16,6 +16,10 @@ export interface ISnowflakeConnection extends ConnectionOptions {
 
 export interface ISourcesConfig {
 	snowflake: ISnowflakeConnection;
+	postgres: {
+		username: string;
+		password: string;
+	}
 	mongo: {
 		operating: string;
 		reporting: string;
