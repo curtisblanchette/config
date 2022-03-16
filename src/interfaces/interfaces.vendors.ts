@@ -15,6 +15,14 @@ export interface IVendorConfig {
 			};
 			sns: {
 				errorParserArn: string;
+			};
+			rds: {
+				aurora: {
+					endpoints: {
+						write: string;
+						read: string;
+					}
+				}
 			}
 		};
 	};
