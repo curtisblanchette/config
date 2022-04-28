@@ -1,6 +1,10 @@
 interface IServiceLocations {
 	app: string;
 	api: string;
+	dominion: {
+		appUrl: string;
+		apiUrl: string;
+	}
 	papi: {
 		url: string;
 		authUrl: string;
