@@ -26,5 +26,4 @@ export interface ICredentialsConfig {
 			password: string;
 		}
 	}
-
 }
