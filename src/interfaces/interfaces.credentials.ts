@@ -19,4 +19,11 @@ export interface ICredentialsConfig {
 		secret: string;
 	};
 
+	dominion: {
+		system: {
+			id: string;
+			email: string;
+		}
+	}
+
 }
