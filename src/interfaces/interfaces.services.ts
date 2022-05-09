@@ -1,5 +1,9 @@
 import { IVendorConfig } from "./interfaces.vendors";
 
+interface IDominionDbConfig {
+	UUID_V5_NAMESPACE: string;
+}
+
 interface IHapiConfig {
 	isSecure: boolean;
 	ssl: {
@@ -63,6 +67,7 @@ interface IRedisConfig {
 }
 
 export interface IServicesConfig {
+	dominionDb: IDominionDbConfig;
 
 	hapi: IHapiConfig;
 
