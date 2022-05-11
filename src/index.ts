@@ -52,7 +52,7 @@ export async function get(remote = false): Promise<IConfig> {
 
 	} else {
 
-		console.info(`Reading configuration`);
+		// console.info(`Reading configuration`);
 		if (remote || !storedConfig) {
 			storedConfig = await read();
 			console.info(`Configuration Loaded from AWS`);
