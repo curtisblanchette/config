@@ -24,7 +24,6 @@
     "publish:rc": "git diff --exit-code && npm run build && npm version prerelease --preid=rc && npm publish"
   },
   "dependencies": {
-    "@4iiz/logging": "^0.3.4",
     "aws-sdk": "^2.627.0",
     "lodash": "^4.17.21",
     "snowflake-promise": "^2.2.0",
