@@ -15,15 +15,15 @@ let storedConfig:IConfig;
 export async function read(): Promise<IConfig> {
 
 	// retrieves the stack specific configuration
-	console.info(`Retrieving configuration from S3`);
+	// console.info(`Retrieving configuration from S3`);
 	const config = await getS3Config() as IConfig;
 
 	// get the secret keys
-	console.info(`Retrieving keys from Secrets Manager`);
+	// console.info(`Retrieving keys from Secrets Manager`);
 	const secrets = await getSecret('secrets');
 
 	// merge the secrets into the config
-	console.info(`Constructing configuration`);
+	// console.info(`Constructing configuration`);
 	Object.keys(secrets).forEach(path=>_.set( config, path, secrets[path] ));
 
 	return config;
@@ -31,7 +31,7 @@ export async function read(): Promise<IConfig> {
 
 export async function refresh(every=86400): Promise<IConfig> {
 
-	console.info(`Setting refresh interval to ${every}`);
+	// console.info(`Setting refresh interval to ${every}`);
 	interval = setInterval(async () => {
 		storedConfig = await read();
 	}, every);
@@ -48,14 +48,14 @@ export async function get(remote = false): Promise<IConfig> {
 		// read the local config in and parse it
 		const file = fs.readFileSync(path, 'utf-8');
 		storedConfig = YAML.parse( file );
-		console.info(`Configuration Loaded from local/config.yml`);
+		// console.info(`Configuration Loaded from local/config.yml`);
 
 	} else {
 
-		console.info(`Reading configuration`);
+		// console.info(`Reading configuration`);
 		if (remote || !storedConfig) {
 			storedConfig = await read();
-			console.info(`Configuration Loaded from AWS`);
+			// console.info(`Configuration Loaded from AWS`);
 		}
 
 	}
