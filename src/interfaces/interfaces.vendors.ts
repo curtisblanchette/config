@@ -126,6 +126,14 @@ export interface IVendorConfig {
 		redirect: string;
 	}
 
+	jira: {
+		clientId: string;
+		clientSecret: string;
+		apiUrl: string;
+		oAuthUrl: string;
+		redirect: string;
+	}
+
 	mysql?: {
 		host: string;
 		username: string;
