@@ -29,6 +29,9 @@ interface IExpressConfig {
 	isSecure: boolean;
 	host: string;
 	port: number;
+	cors: {
+		whitelist: string[]
+	}
 	cognito: {
 		poolId: string;
 		clientId: string;
