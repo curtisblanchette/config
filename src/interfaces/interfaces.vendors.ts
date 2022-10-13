@@ -118,6 +118,22 @@ export interface IVendorConfig {
 		coql: any;
 	};
 
+	qntrl: {
+		clientId: string;
+		clientSecret: string;
+		apiUrl: string;
+		oAuthUrl: string;
+		redirect: string;
+	}
+
+	jira: {
+		clientId: string;
+		clientSecret: string;
+		apiUrl: string;
+		oAuthUrl: string;
+		redirect: string;
+	}
+
 	mysql?: {
 		host: string;
 		username: string;
