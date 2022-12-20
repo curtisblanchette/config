@@ -1,6 +1,6 @@
 export async function getSecret( name:string ){
 
-	const stack = process.env.STACK || process.env.NODE_ENV || 'dev';
+//	const stack = process.env.STACK || process.env.NODE_ENV || 'dev';
 	
 	// Use this code snippet in your app.
 	// If you need more information about configurations or implementing the sample code, visit the AWS docs:
@@ -9,7 +9,7 @@ export async function getSecret( name:string ){
 	// Load the AWS SDK
 	const AWS = require('aws-sdk');
 	const region = "us-east-1";
-	const secretName = `${stack}/${name}`;
+	const secretName = process.env.NODE_ENV; // `${stack}/${name}`;
 
 	// Create a Secrets Manager client
 	const client = new AWS.SecretsManager({

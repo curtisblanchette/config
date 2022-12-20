@@ -1,8 +1,8 @@
 {
-  "name": "@4iiz/config",
+  "name": "@trichome/config",
   "version": "3.14.22",
   "description": "> TODO: description",
-  "author": "Curtis Blanchette <curtis@4iiz.com>",
+  "author": "Curtis Blanchette <hello@curtisblanchette.com>",
   "homepage": "",
   "license": "ISC",
   "main": "lib/index.js",

@@ -12,7 +12,7 @@ the configurations.
 ## Installation
 
 ```
-npm install @4iiz/config
+npm install @trichome/config
 ```
 
 ## Environment Variables
@@ -25,7 +25,7 @@ string `dev`.
 ## Usage
 
 ```
-import { * as Config } from '@4iiz/config`;
+import { * as Config } from '@trichome/config`;
 
 // read the remote config
 let config = Config.read();
@@ -50,13 +50,13 @@ it until the server is restarted.
 
 server.ts
 ```
-import { * as Config } from '@4iiz/config`;
+import { * as Config } from '@trichome/config`;
 Config.read();
 ```
 
 module.ts
 ```
-import { * as Config } from '@4iiz/config`;
+import { * as Config } from '@trichome/config`;
 
 export class SomeClass {
 
@@ -74,14 +74,14 @@ This example will load the configuration when the server is started and update i
 
 server.ts
 ```
-import { * as Config } from '@4iiz/config`;
+import { * as Config } from '@trichome/config`;
 Config.read();
 Config.refresh(); // defaults to 
 ```
 
 module.ts
 ```
-import { * as Config } from '@4iiz/config`;
+import { * as Config } from '@trichome/config`;
 
 export class SomeClass {
 

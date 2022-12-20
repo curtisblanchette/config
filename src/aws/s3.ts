@@ -3,13 +3,13 @@ import YAML from 'yamljs';
 export function getS3Config( format='object' ){
 
 	const AWS = require('aws-sdk');
-	const region = "us-east-1";
-	const stack = process.env.STACK || process.env.NODE_ENV || 'dev';
-	const Bucket = "4iiz-config";
-	const Key = `${stack}.yml`;
+	const region = "us-west-2";
+
+	const Bucket = "dominion-config";
+	const Key = `${process.env.NODE_ENV}.yml`;
 	const s3 = new AWS.S3({ region });
 
-	return new Promise((resolve, reject)=>{
+	return new Promise((resolve, reject) => {
 		
 		s3.getObject({ Bucket, Key }, (err, yamlBuffer)=>{
 		
