@@ -6,6 +6,10 @@ interface IDominionDbConfig {
 
 interface IExpressConfig {
 	isSecure: boolean;
+	ssl: {
+		key: string;
+		certificate: string;
+	};
 	host: string;
 	port: number;
 	cors: {
