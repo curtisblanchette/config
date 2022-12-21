@@ -8,7 +8,7 @@ export async function getSecret( name:string ){
 
 	// Load the AWS SDK
 	const AWS = require('aws-sdk');
-	const region = "us-east-1";
+	const region = "us-west-2";
 	const secretName = process.env.NODE_ENV; // `${stack}/${name}`;
 
 	// Create a Secrets Manager client
