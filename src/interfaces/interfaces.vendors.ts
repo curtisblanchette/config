@@ -3,7 +3,7 @@ export interface IVendorConfig {
 		region: string;
 		accessKeyId: string;
 		accessKeySecret: string;
-		products: {
+		services: {
 			cognito: {
 				poolId: string;
 				clientId: string;

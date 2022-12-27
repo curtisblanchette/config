@@ -1,7 +1,6 @@
-import { IVendorConfig } from "./interfaces.vendors";
-
-interface IDominionDbConfig {
+interface IPostgresConfig {
 	UUID_V5_NAMESPACE: string;
+	username: string;
 }
 
 interface IExpressConfig {
@@ -18,9 +17,6 @@ interface IExpressConfig {
 }
 
 export interface IServicesConfig {
-	dominionDb: IDominionDbConfig;
-
+	postgres: IPostgresConfig;
 	express: IExpressConfig;
-
-	vendors: IVendorConfig;
 }
