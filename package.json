@@ -30,11 +30,11 @@
   },
   "gitHead": "c3b5cae72b3441cdd7489b77aad6817e21238cb9",
   "devDependencies": {
+    "@types/lodash": "^4.14.168",
     "@types/node": "^12.11.7",
     "@types/yamljs": "^0.2.31",
-    "@types/lodash": "^4.14.168",
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^7.19.0",
     "typescript": "^3.9.7"
   }
