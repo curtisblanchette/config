@@ -15,10 +15,6 @@ interface IExpressConfig {
 	cors: {
 		whitelist: string[]
 	}
-	cognito: {
-		poolId: string;
-		clientId: string;
-	}
 }
 
 export interface IServicesConfig {

@@ -6,8 +6,8 @@ import { default as YAML } from 'yamljs';
 import fs from 'fs';
 
 export * from './interfaces/interfaces.sources';
-export * from './interfaces/interfaces.policy';
 export * from './interfaces/interfaces.config';
+export * from './interfaces/interfaces.vendors';
 
 let interval;
 let storedConfig:IConfig;
