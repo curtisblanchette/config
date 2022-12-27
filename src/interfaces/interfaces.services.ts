@@ -1,6 +1,7 @@
 interface IPostgresConfig {
 	UUID_V5_NAMESPACE: string;
 	username: string;
+	password: string;
 }
 
 interface IExpressConfig {
