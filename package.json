@@ -23,7 +23,8 @@
     "publish:rc": "git diff --exit-code && npm run build && npm version prerelease --preid=rc && npm publish"
   },
   "dependencies": {
-    "aws-sdk": "^2.627.0",
+    "@aws-sdk/client-s3": "latest",
+    "@aws-sdk/client-secrets-manager": "latest",
     "lodash": "^4.17.21",
     "snowflake-promise": "^2.2.0",
     "yamljs": "^0.3.0"

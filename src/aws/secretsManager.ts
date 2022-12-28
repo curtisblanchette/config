@@ -1,30 +1,32 @@
-export async function getSecret( name:string ){
+import { GetSecretValueCommand, SecretsManagerClient } from '@aws-sdk/client-secrets-manager';
 
-//	const stack = process.env.STACK || process.env.NODE_ENV || 'dev';
+export async function getSecret( name:string ) {
+
+  // const stack = process.env.STACK || process.env.NODE_ENV || 'dev';
 	
 	// Use this code snippet in your app.
 	// If you need more information about configurations or implementing the sample code, visit the AWS docs:
 	// https://aws.amazon.com/developers/getting-started/nodejs/
 
 	// Load the AWS SDK
-	const AWS = require('aws-sdk');
 	const region = "us-west-2";
 	const secretName = process.env.NODE_ENV; // `${stack}/${name}`;
 
 	// Create a Secrets Manager client
-	const client = new AWS.SecretsManager({
+	const client = new SecretsManagerClient({
 		region
 	});
 
 	// In this sample we only handle the specific exceptions for the 'GetSecretValue' API.
 	// See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
 	// We rethrow the exception by default.
-	return client.getSecretValue({SecretId: secretName}).promise().then(data=>{
+	const getSecretValue = new GetSecretValueCommand({SecretId: secretName})
+	return client.send(getSecretValue).then(data=>{
 		
 		if ('SecretString' in data) {
 			return JSON.parse(data.SecretString);
 		} else {
-			const buff = new Buffer(data.SecretBinary, 'base64');
+			const buff = new Buffer(data.SecretBinary as any, 'base64');
 			return buff.toString('ascii');
 		}
 
