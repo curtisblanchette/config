@@ -1,5 +1,6 @@
 import YAML from 'yamljs';
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { sdkStreamMixin } from '@aws-sdk/util-stream-node';
 
 export function getS3Config(format = 'object') {
 
@@ -11,9 +12,9 @@ export function getS3Config(format = 'object') {
 
   const getObject = new GetObjectCommand({Bucket, Key})
 
-  return s3.send(getObject).then((yamlBuffer) => {
+  return s3.send(getObject).then(async (yamlBuffer) => {
 
-    const yamlConfig = new Buffer(yamlBuffer.Body as any).toString('utf8');
+    const yamlConfig = await sdkStreamMixin(yamlBuffer.Body).transformToString();
 
     switch (format) {
 
