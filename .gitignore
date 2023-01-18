@@ -2,7 +2,9 @@
 .idea
 .vscode
 *.tmp.txt
-
 /lib
 node_modules
 .DS_Store
+local.yml
+dev.yml
+prod.yml
